@@ -1,0 +1,16 @@
+{
+  "name": "signalingserver",
+  "version": "1.0.0",
+  "description": "sample signaling server for webrtc group calling",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.10.1",
+    "socket.io": "^4.1.0"
+  }
+}
