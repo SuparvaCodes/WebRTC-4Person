@@ -1,0 +1,816 @@
+/*
+* This code is licensed under MIT
+* All rights reserved
+* Created by Suparva (Suparva Baranwal)
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Icons');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+/* For the entire page */
+html {
+    scrollbar-width: thin;
+    /* For Firefox */
+    scrollbar-color: #888 #f1f1f1;
+    /* For Firefox */
+}
+
+/* For Webkit browsers like Chrome, Safari and Edge */
+html::-webkit-scrollbar {
+    height: 8px;
+    /* Custom scrollbar height */
+    background: #f1f1f1;
+    /* Background color of the scrollbar track */
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* Color of the scrollbar thumb */
+    border-radius: 10px;
+    /* Roundness of the scrollbar thumb */
+    border: 2px solid #f1f1f1;
+    /* Padding around the thumb */
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Color of the scrollbar thumb on hover */
+}
+
+/* For vertical scrollbar */
+html::-webkit-scrollbar {
+    width: 8px;
+    /* Custom scrollbar width */
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* Color of the scrollbar thumb */
+    border-radius: 10px;
+    /* Roundness of the scrollbar thumb */
+    border: 2px solid #f1f1f1;
+    /* Padding around the thumb */
+}
+
+html::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Color of the scrollbar thumb on hover */
+}
+
+body {
+    background-color: #fff;
+    height: 100%;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    margin-top: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+nav {
+    padding: 8px;
+    background: #2b69c5;
+    color: #fff;
+}
+
+.button {
+    outline: none;
+    padding: 7px;
+    width: auto;
+    font-weight: 700;
+    transition: all 0.8s ease;
+    background-color: #2874f0;
+    height: auto;
+    color: #fff;
+    border: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.button:active {
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+    background-color: #5d8bd4;
+}
+
+.button .ripple-btn {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.89);
+    border-radius: 50%;
+    transform: scale(0);
+    pointer-events: none;
+    animation: ripple-animation-btn 0.6s linear;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.red-btn {
+    background-color: rgb(245, 72, 72);
+}
+
+.red-btn:active {
+    background-color: rgb(235, 120, 120);
+}
+
+.button:disabled {
+    background-color: rgb(150, 144, 144);
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+
+.rm-parent {
+    margin: 10px;
+}
+
+.rm-con-wx_sg0 {
+    height: 100%;
+}
+
+.rm-cr-wx_sg0_parent {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    translate: -50% -50%;
+    z-index: 1;
+}
+
+
+.rm-cr-wx_sg0 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    -webkit-transform: translateZ(0);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #F5F5F5;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    overflow: hidden;
+    transition: 0.4s all ease;
+    cursor: pointer;
+}
+
+.rm-cr-wx_sg0:active {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.rm-cr-wx_sg0 .ripple {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.89);
+    border-radius: 50%;
+    transform: scale(0);
+    pointer-events: none;
+    animation: ripple-animation 0.4s linear;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+#divRoomCon {
+    -webkit-transform: translateZ(0);
+}
+
+#divUsers {
+    background-color: #1a1919;
+    display: grid;
+    height: 100%;
+    width: 100vw;
+    gap: 1px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.userbox {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    max-width: 100%;
+    max-height: 100%;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+.userbox video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.roomDetails {
+    display: none;
+}
+
+
+@media (min-width: 1024px) {
+    #divUsers {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #divUsers {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    #divUsers {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+}
+
+#otherTemplate {
+    display: none !important;
+}
+
+.toolbox {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 46%;
+    border-top-left-radius: 8px;
+    box-shadow: rgb(123 123 124 / 40%) 0px 0px 0px 2px, rgb(255 255 255 / 65%) 0px 4px 6px -1px, rgb(0 0 0 / 8%) 0px 1px 0px inset;
+    border-top-right-radius: 8px;
+    height: 50px;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toolbox button {
+    padding: 7px;
+    border-radius: 50%;
+    outline: none;
+    border: 0;
+    box-shadow: rgb(255 255 255 / 16%) 0px 3px 6px, rgb(255 255 255 / 23%) 0px 3px 6px;
+    transition: 0.2s all ease;
+}
+
+.toolbox button:active {
+    box-shadow: rgb(244 244 244 / 25%) 0px 14px 28px, rgb(255 255 255 / 22%) 0px 10px 10px;
+}
+
+.MoreMenuButton {
+    box-shadow: rgb(123 123 124 / 40%) 0px 0px 0px 2px, rgb(255 255 255 / 65%) 0px 4px 6px -1px, rgb(0 0 0 / 8%) 0px 1px 0px inset;
+}
+
+.MoreMenuButton:active {
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+.overlay_win {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 999s;
+    display: none;
+}
+
+.overlay_win .create_rmWindow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 80%;
+    height: 80%;
+    background: #fff;
+    -webkit-transform: translateZ(0);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    overflow: hidden;
+    transition: 0.4s all ease;
+}
+
+.overlay_win .create_rmWindow button {
+    position: fixed;
+    bottom: 10px;
+}
+
+.overlay_win .create_rmWindow .CreateRMHead {
+    padding: 10px;
+    width: 100%;
+    background-color: #2b69c5;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+}
+
+.overlay_win .CreateRoomWindowContent {
+    width: 100%;
+    padding: 15px;
+}
+
+
+
+.roomDetails {
+    width: calc(100% - 12px);
+    padding: 10px;
+    border: 1px solid #561fee;
+    margin: 6px;
+    border-radius: 8px;
+}
+
+
+.overlay_win-join {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 999s;
+    display: none;
+}
+
+.overlay_win-join .create_rmWindow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 80%;
+    height: 80%;
+    background: #fff;
+    -webkit-transform: translateZ(0);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    overflow: hidden;
+    transition: 0.4s all ease;
+}
+
+.overlay_win-join .create_rmWindow button {
+    position: fixed;
+    bottom: 10px;
+}
+
+.overlay_win-join .create_rmWindow .CreateRMHead {
+    padding: 10px;
+    width: 100%;
+    background-color: #2b69c5;
+    color: #fff;
+    border-radius: 10px 10px 0 0;
+}
+
+.overlay_win-join .CreateRoomWindowContent {
+    width: 100%;
+    padding: 15px;
+}
+
+
+
+
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(25);
+        opacity: 0;
+    }
+}
+
+@keyframes ripple-animation-btn {
+    to {
+        transform: scale(15);
+        opacity: 0;
+    }
+}
+
+.custom-select-wrapper {
+    width: 50%;
+    position: relative;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    outline: none;
+}
+
+.custom-select {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 10px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.custom-select:hover {
+    border-color: #999;
+}
+
+.custom-select::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+    transition: transform 0.3s;
+}
+
+.custom-select.open::after {
+    transform: rotate(-180deg);
+}
+
+.select-items {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: unset;
+    border-radius: 4px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    z-index: 10;
+}
+
+.select-items.open {
+    max-height: 200px;
+    overflow: auto;
+    border: 2px solid #ccc;
+}
+
+.select-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.select-item:hover {
+    background-color: #f1f1f1;
+}
+
+#PasswordField-cr,
+#PasswordField-jn {
+    display: none;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-custom {
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    transition: background-color 0.3s, border-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkbox-custom svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: white;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    visibility: hidden;
+}
+
+input[type="checkbox"]:checked+.checkbox-label .checkbox-custom {
+    background-color: #4caf50;
+    border-color: #4caf50;
+}
+
+input[type="checkbox"]:checked+.checkbox-label .checkbox-custom svg {
+    visibility: visible;
+}
+
+.checkbox-text {
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+}
+
+.form__field {
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 16px;
+    color: #333;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+    color: transparent;
+}
+
+.form__field:placeholder-shown~.form__label {
+    font-size: 16px;
+    cursor: text;
+    top: 20px;
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 14px;
+    color: #9b9b9b;
+}
+
+.form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 400;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+}
+
+.form__field:focus~.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #11998e;
+    font-weight: 700;
+}
+
+/* reset input */
+.form__field:required,
+.form__field:invalid {
+    box-shadow: none;
+}
+
+
+.no-select {
+    user-select: none;
+}
+
+.WindowTop {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom: 1px solid #fff;
+}
+
+.WindowTop .back-window {
+    outline: none;
+    background-color: transparent;
+    border: 0;
+    border-radius: 50%;
+    width: 7%;
+    height: 70%;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-flex;
+    transition: 0.2s all ease;
+    justify-content: center;
+    align-items: center;
+}
+
+.WindowTop .back-window:active {
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+
+.WebWindowOverlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.WebWindowOverlay .WebWindow {
+    width: 75%;
+    height: 75%;
+    top: 12.5%;
+    left: 12.5%;
+    background: #333;
+    position: fixed;
+    border: 0;
+    -webkit-transform: translateZ(0);
+    border-radius: 8px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.WebWindowOverlay .WebWindow .content-web {
+    padding: 10px;
+    height: 90%;
+    width: 100%;
+    overflow: auto;
+    color: #fff;
+}
+
+.WebWindowOverlay .WebWindow .content-web h3 {
+    margin-top: 6px;
+    font-size: 20px;
+}
+
+.WebWindowOverlay .WebWindow .content-web h3:first-child {
+    font-size: 22px;
+    margin-top: 0px;
+}
+
+.copyable-texts {
+    -webkit-transform: translateZ(0);
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid #5f35d3;
+    border-radius: 8px;
+}
+
+.copyable-texts:active {
+    background-color: rgba(214, 214, 214, 0.1);
+}
+
+#copyable-texts-copy {
+    position: fixed;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #2875f05e;
+    outline: none;
+    border-radius: 8px;
+    border: 0;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 14px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .WindowTop .back-window {
+        outline: none;
+        background-color: transparent;
+        border: 0;
+        border-radius: 50%;
+        width: 8%;
+        height: 70%;
+        margin-top: 10px;
+        margin-left: 10px;
+        display: inline-flex;
+        transition: 0.2s all ease;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .WebWindowOverlay .WebWindow {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        position: unset;
+        border-radius: 0%;
+    }
+    
+    .rm-cr-wx_sg0_parent {
+        display: unset;
+    }
+
+    .overlay_win .create_rmWindow {
+        border-radius: unset;
+        width: 100%;
+        height: 100%;
+    }
+
+    .overlay_win .create_rmWindow .CreateRMHead {
+        border-radius: 0 0 0 0;
+    }
+
+    .overlay_win-join .create_rmWindow {
+        border-radius: unset;
+        width: 100%;
+        height: 100%;
+    }
+
+    .overlay_win-join .create_rmWindow .CreateRMHead {
+        border-radius: 0 0 0 0;
+    }
+
+    .form__group {
+        width: 100%;
+    }
+
+    .custom-select-wrapper {
+        width: 100%;
+    }
+
+    .toolbox {
+        width: 86%;
+    }
+}
+
+.MoreMenuContent {
+    border-radius: 8px !important;
+    color: #fff !important;
+    background-color: #454545 !important;
+    box-shadow: rgb(107 102 102 / 30%) 0px 19px 38px, rgb(96 96 96 / 22%) 0px 15px 12px;
+}
+
+.MoreMenuContent a {
+    padding: 5px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    display: block !important;
+    width: 100% !important;
+    transition: 0.3s all ease;
+}
+
+.MoreMenuContent a:active {
+    background-color:rgba(0, 0, 0, 0.1) !important;
+}
+
+.message-box {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    /* Dark theme background color */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: bottom 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    z-index: 9999;
+}
+
+.message-icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
