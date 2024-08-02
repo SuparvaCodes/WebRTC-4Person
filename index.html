@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Group Calling</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+    <nav>
+        <h2>Group Calling</h2>
+    </nav>
+    <div class="rm-cr-wx_sg0_parent">
+        <div class="rm-cr-wx_sg0" id="createRoomFormButton">
+            <svg style="margin-top: -50px" xmlns="http://www.w3.org/2000/svg" height="58px" viewBox="0 -960 960 960"
+                width="58px" fill="#1a73e8">
+                <path d="M450-450H200v-60h250v-250h60v250h250v60H510v250h-60v-250Z" />
+            </svg>
+            <span style="position: absolute;bottom: 60px;">Create Room</span>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="rm-cr-wx_sg0" id="joinRoomFormButton">
+            <svg style="margin-top: -50px" xmlns="http://www.w3.org/2000/svg" height="52px" viewBox="0 -960 960 960"
+                width="52px" fill="#1a73e8">
+                <path
+                    d="M481-120v-60h299v-600H481v-60h299q24 0 42 18t18 42v600q0 24-18 42t-42 18H481Zm-55-185-43-43 102-102H120v-60h363L381-612l43-43 176 176-174 174Z" />
+            </svg>
+            <span style="position: absolute;bottom: 60px;">Join Room</span>
+        </div>
+    </div>
+
+
+
+    <div class="rm-con-wx_sg0">
+        <div class="roomDetails">
+            <span>Room details:</span>
+            <h2 id="meetingname">YOX3UGBT8XVUQZ73</h2>&nbsp;<a id="meetinJoinURLCon" href="#"></a>
+        </div>
+        <div style="height: 100%;" id="divRoomCon">
+            <div id='divUsers' style="display:none">
+                <div id="me" class="userbox" style="display: block;">
+                    <div>
+                        <video autoplay muted id="localVideoCtr">
+                    </div>
+                </div>
+                <div id="otherTemplate" class="userbox" style="display:none">
+                    <h3></h3>
+                    <div>
+                        <video autoplay muted id="remoteVideoCtr111"></video>
+                        <audio autoplay controls style="display:none" id="remoteAudioCtr111"></audio>
+                    </div>
+                </div>
+            </div>
+            <div class="toolbox" style="display: none;">
+                <div class="dropup">
+                    <button data-toggle="dropdown" aria-expanded="false" id="MoreMenu" class="MoreMenuButton" style="margin-left: 10px;"><svg
+                            style="margin-bottom: -4px;" xmlns="http://www.w3.org/2000/svg" height="24px"
+                            viewBox="0 -960 960 960" width="24px" fill="#000000">
+                            <path
+                                d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
+                        </svg></button>
+                    <div class="dropdown-menu MoreMenuContent" id="MoreMenu">
+                        <a id="InviteUserBTN">Invite</a>
+                        <a id="RoomDetailsBTN">Room details</a>
+                    </div>
+                </div>
+                <button id="btnMuteUnmute" style="margin-left: 10px;"><svg style="margin-bottom: -4px;"
+                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#000000">
+                        <path
+                            d="m710-362-58-58q14-23 21-48t7-52h80q0 44-13 83.5T710-362ZM480-594Zm112 112-72-72v-206q0-17-11.5-28.5T480-800q-17 0-28.5 11.5T440-760v126l-80-80v-46q0-50 35-85t85-35q50 0 85 35t35 85v240q0 11-2.5 20t-5.5 18ZM440-120v-123q-104-14-172-93t-68-184h80q0 83 57.5 141.5T480-320q34 0 64.5-10.5T600-360l57 57q-29 23-63.5 39T520-243v123h-80Zm352 64L56-792l56-56 736 736-56 56Z" />
+                    </svg></button>
+                <button id="btnStartStopCam" style="margin-left: 10px;"><svg style="margin-bottom: -4px;"
+                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#000000">
+                        <path
+                            d="M880-260 720-420v67l-80-80v-287H353l-80-80h367q33 0 56.5 23.5T720-720v180l160-160v440ZM822-26 26-822l56-56L878-82l-56 56ZM498-575ZM382-464ZM160-800l80 80h-80v480h480v-80l80 80q0 33-23.5 56.5T640-160H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800Z" />
+                    </svg></button>
+                <button id="btnStartStopScreenshare" style="margin-left: 10px;"><svg style="margin-bottom: -4px;"
+                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#000000">
+                        <path
+                            d="M320-120v-80h80v-80H160q-33 0-56.5-23.5T80-360v-400q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v400q0 33-23.5 56.5T800-280H560v80h80v80H320ZM160-360h640v-400H160v400Zm0 0v-400 400Z" />
+                    </svg></button>
+                <button id="btnLeaveMeeting" style="margin-left: 10px;"><svg style="margin-bottom: -4px;"
+                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#000000">
+                        <path
+                            d="M806-440H320v-80h486l-62-62 56-58 160 160-160 160-56-58 62-62ZM600-600v-160H200v560h400v-160h80v160q0 33-23.5 56.5T600-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h400q33 0 56.5 23.5T680-760v160h-80Z" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <div style="clear: both;"></div>
+    </div>
+    </div>
+
+
+    <!--Windows-->
+    <div class="overlay_win">
+        <div class="create_rmWindow">
+            <div class="CreateRMHead">
+                <h2>Create Room</h2>
+            </div>
+
+            <div class="CreateRoomWindowContent">
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="Your Name" id='UserNameFieldCreate' required />
+                    <label for="name" class="form__label">Your Name</label>
+                </div>
+                <br>
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="Subject" id='RoomSubjectFieldCreate'
+                        required />
+                    <label for="name" class="form__label">Subject (optional)</label>
+                </div>
+                <br>
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="checkbox-create-rm" />
+                    <label for="checkbox-create-rm" class="checkbox-label">
+                        <div class="checkbox-custom">
+                            <svg viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <span class="checkbox-text">Password (optional)</span>
+                    </label>
+                </div>
+                <div id="PasswordField-cr" class="form__group field">
+                    <input type="password" class="form__field" placeholder="Password" id='RoomPasswordFieldCreate'
+                        required />
+                    <label for="name" class="form__label">Password</label>
+                </div>
+                <br>
+                <div class="custom-select-wrapper">
+                    <div class="custom-select">Maximum Participants</div>
+                    <div class="select-items">
+                        <div class="select-item">Four (4)</div>
+                        <div aria-label="disabled" class="select-item">More comming soon!!</div>
+                    </div>
+                </div>
+            </div>
+            <button class="button red-btn cancelRoomCreateBTN" style="right: 100px;">Cancel</button>
+            <button class="button createRoomButton" style="right: 10px;">Create</button>
+        </div>
+    </div>
+
+
+    <div class="overlay_win-join">
+        <div class="create_rmWindow">
+            <div class="CreateRMHead">
+                <h2>Join Room</h2>
+            </div>
+
+            <div class="CreateRoomWindowContent">
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="Your Name" id='UserNameFieldJoin' required />
+                    <label for="name" class="form__label">Your Name</label>
+                </div>
+                <br>
+                <div class="form__group field">
+                    <input type="input" class="form__field" placeholder="Room ID" id='RoomIdFieldJoin' required />
+                    <label for="name" class="form__label">Room ID</label>
+                </div>
+                <br>
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="checkbox-join-rm" />
+                    <label for="checkbox-join-rm" class="checkbox-label">
+                        <div class="checkbox-custom">
+                            <svg viewBox="0 0 24 24">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                        </div>
+                        <span class="checkbox-text">Password</span>
+                    </label>
+                </div>
+                <div id="PasswordField-jn" class="form__group field">
+                    <input type="password" class="form__field" placeholder="Password" id='RoomPasswordFieldJoin'
+                        required />
+                    <label for="name" class="form__label">Password</label>
+                </div>
+            </div>
+            <button class="button red-btn cancelRoomJoinBTN" style="right: 80px;">Cancel</button>
+            <button class="button joinRoomButton" style="right: 10px;">Join</button>
+        </div>
+    </div>
+
+    <div class="message-box" id="messageBox">
+        <i class="message-icon"></i>
+        <span id="messageText"></span>
+        <span class="close-btn" onclick="closeMessageBox()">&nbsp;&nbsp;<b
+                style="color: brown; font-size: 16px;">&times;</b></span>
+    </div>
+
+    <!--Web Window-->
+    <div class="WebWindowOverlay">
+        <div class="WebWindow">
+            <!--Window Top-->
+            <div class="WindowTop">
+                <button onclick="HideWindow()" class="back-window" id="back-web-view" style="margin-bottom: -5px"><i
+                        class="material-icons" id="go-back-icon" style="font-size: 26px;color: #fff;">arrow_back</i></button>
+            </div>
+            <!--Content-->
+            <div class="content-web">
+                <label style="font-size: 14px;margin-left: 5px;">Room I'd</label>
+                <div onclick="CopySpan('RoomDetails-RoomID')" class="copyable-texts"><span id="RoomDetails-RoomID"></span> <button id="copyable-texts-copy"><svg style="margin-bottom: -4px;" xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="#F3F3F3"><path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/></svg></button></div>
+                <br>
+                <label style="font-size: 14px;margin-left: 5px;">Password</label>
+                <div onclick="CopySpan('RoomDetails-Password')" class="copyable-texts"><span id="RoomDetails-Password"></span> <button id="copyable-texts-copy"><svg style="margin-bottom: -4px;" xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px" fill="#F3F3F3"><path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/></svg></button></div>
+            </div>
+            <!--Button
+            <button class="button close">Okay</button>-->
+        </div>
+    </div>
+
+    <script src="https://cdn.apijunction.online/libraries/socket.io/js/4.1.0/socket.io.js"></script>
+    <script src="scripts/SinguixRTC.SDK.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/client.js"></script>
+</body>
+
+</html>
