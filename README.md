@@ -12,7 +12,7 @@
 
 # Demo
 
-### You can try demo at https://cdn.apijunction.online/vcall/
+### You can try demo at https://cdn.ai-powered-tools.online/vcall/
 
 
 
